@@ -6,71 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Посмотри в окно</title>
     <link rel="stylesheet" href="./fonts/fonts.css" />
-    <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/preloader.css" />
+    <link rel="stylesheet" href="./styles/error.css" />
   </head>
   <body class="page">
     <main class="content">
       <section class="result">
-        <div class="result__video-container" id="video-container">
-          <video class="result__video" id="current-video" controls autoplay muted loop></video>
+        <div class="result__video-container">
+          <video src="" controls class="result__video" poster=""></video>
         </div>
-        <form class="search-form" id="search-form" novalidate>
+        <form class="search-form">
           <fieldset class="search-form__fieldset">
-            <legend class="search-form__fieldset-title">Город</legend>
+            <h2 class="search-form__fieldset-title">Город</h2>
             <label class="search-form__label">
-              <span class="visually-hidden">Введите город</span>
+              <span class="search-form__label-text visually-hidden">Город</span>
               <input
-                class="search-form__textfield"
                 type="text"
-                name="query"
-                placeholder="Введите город"
-                value="Санкт-Петербург"
-                required
+                placeholder="Санкт Петербург, например"
+                name="city"
+                class="search-form__textfield"
               />
             </label>
           </fieldset>
-
           <fieldset class="search-form__fieldset">
-            <legend class="search-form__fieldset-title">Время суток</legend>
-            <ul class="search-form__checkbox-list">
-              <li>
-                <label class="search-form__label search-form__label_checkbox">
-                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="day" checked />
-                  <span class="search-form__pseudo-checkbox"></span>
-                  <span class="search-form__label-text">День</span>
-                </label>
-              </li>
-              <li>
-                <label class="search-form__label search-form__label_checkbox">
-                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="night" checked />
-                  <span class="search-form__pseudo-checkbox"></span>
-                  <span class="search-form__label-text">Ночь</span>
-                </label>
-              </li>
-              <li>
-                <label class="search-form__label search-form__label_checkbox">
-                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="sunset" />
-                  <span class="search-form__pseudo-checkbox"></span>
-                  <span class="search-form__label-text">Закат</span>
-                </label>
-              </li>
-            </ul>
+            <h2 class="search-form__fieldset-title">Время суток</h2>
+            <div class="search-form__checkbox-list">
+              <label class="search-form__label">
+                <input
+                  type="checkbox"
+                  name="time"
+                  value="morning"
+                  class="search-form__checkbox visually-hidden"
+                />
+                <span class="search-form__pseudo-checkbox"></span>
+                <span class="search-form__label-text">Утро</span>
+              </label>
+              <label class="search-form__label">
+                <input
+                  type="checkbox"
+                  name="time"
+                  value="afternoon"
+                  class="search-form__checkbox visually-hidden"
+                />
+                <span class="search-form__pseudo-checkbox"></span>
+                <span class="search-form__label-text">День</span>
+              </label>
+              <label class="search-form__label">
+                <input
+                  type="checkbox"
+                  name="time"
+                  value="night"
+                  class="search-form__checkbox visually-hidden"
+                />
+                <span class="search-form__pseudo-checkbox"></span>
+                <span class="search-form__label-text">Ночь</span>
+              </label>
+            </div>
           </fieldset>
-
-          <button class="button search-form__submit-button" type="submit">Найти</button>
+          <button type="submit" class="button search-form__submit-button">
+            Найти
+          </button>
         </form>
       </section>
-
       <section class="content__details">
-        <h1 class="title">посмотри в окно<span class="content__accent"> прямо сейчас</span></h1>
-        <div class="content__list-container" id="list-container">
-          <ul class="content__list" id="videos-list"></ul>
+        <h1 class="title">
+          <span class="content__accent">По-</span><br />смотри<br />в окно
+        </h1>
+        <div class="content__list-container">
+          <ul class="content__list">
+            <!-- ЗДЕСЬ ОКАЖУТСЯ ТЕМПЛЕЙТЫ КАРТОЧЕК -->
+          </ul>
         </div>
       </section>
     </main>
 
-    <template class="content__list-item-template">
+    <!-- ТЕМПЛЕЙТЫ -->
+
+    <template class="preloader-template">
+      <div class="preloader">
+        <div class="preloader-chasing-squares">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+      </div>
+    </template>
+
+    <template class="cards-list-item-template">
       <li class="content__list-item">
         <a class="content__card-link" href="#0">
           <article class="content__video-card">
@@ -83,24 +107,14 @@
         </a>
       </li>
     </template>
-
     <template class="more-button-template">
-      <button class="button more-button" type="button">Показать еще</button>
+      <button class="button more-button">Показать еще</button>
     </template>
-
-    <template class="preloader-template">
-      <div class="preloader">
-        <span class="preloader__ring"></span>
-      </div>
-    </template>
-
     <template class="error-template">
       <div class="error">
-        <p class="error__title">Ошибка</p>
-        <p class="error__text"></p>
+        <h2 class="error__title">Из этого города нет видео :(</h2>
       </div>
     </template>
-
     <script src="./scripts/script.js"></script>
   </body>
 </html>
