@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Fira Sans Condensed";
+  src: local("Fira Sans Condensed"), local("Arial");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fira Sans Condensed";
+  src: local("Fira Sans Condensed Medium"), local("Arial Bold");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: local("Oswald"), local("Arial");
+  font-weight: 700;
+}

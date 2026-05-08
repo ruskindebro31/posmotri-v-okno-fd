@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Посмотри в окно</title>
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body class="page">
+    <main class="content">
+      <section class="result">
+        <div class="result__video-container" id="video-container">
+          <video class="result__video" id="current-video" controls autoplay muted loop></video>
+        </div>
+        <form class="search-form" id="search-form" novalidate>
+          <fieldset class="search-form__fieldset">
+            <legend class="search-form__fieldset-title">Город</legend>
+            <label class="search-form__label">
+              <span class="visually-hidden">Введите город</span>
+              <input
+                class="search-form__textfield"
+                type="text"
+                name="query"
+                placeholder="Введите город"
+                value="Санкт-Петербург"
+                required
+              />
+            </label>
+          </fieldset>
+
+          <fieldset class="search-form__fieldset">
+            <legend class="search-form__fieldset-title">Время суток</legend>
+            <ul class="search-form__checkbox-list">
+              <li>
+                <label class="search-form__label search-form__label_checkbox">
+                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="day" checked />
+                  <span class="search-form__pseudo-checkbox"></span>
+                  <span class="search-form__label-text">День</span>
+                </label>
+              </li>
+              <li>
+                <label class="search-form__label search-form__label_checkbox">
+                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="night" checked />
+                  <span class="search-form__pseudo-checkbox"></span>
+                  <span class="search-form__label-text">Ночь</span>
+                </label>
+              </li>
+              <li>
+                <label class="search-form__label search-form__label_checkbox">
+                  <input class="visually-hidden search-form__checkbox" type="checkbox" name="time" value="sunset" />
+                  <span class="search-form__pseudo-checkbox"></span>
+                  <span class="search-form__label-text">Закат</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+
+          <button class="button search-form__submit-button" type="submit">Найти</button>
+        </form>
+      </section>
+
+      <section class="content__details">
+        <h1 class="title">посмотри в окно<span class="content__accent"> прямо сейчас</span></h1>
+        <div class="content__list-container" id="list-container">
+          <ul class="content__list" id="videos-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <template class="content__list-item-template">
+      <li class="content__list-item">
+        <a class="content__card-link" href="#0">
+          <article class="content__video-card">
+            <div class="content__video-card-description-container">
+              <h2 class="content__video-card-title"></h2>
+              <p class="content__video-card-description"></p>
+            </div>
+            <img class="content__video-card-thumbnail" alt="" />
+          </article>
+        </a>
+      </li>
+    </template>
+
+    <template class="more-button-template">
+      <button class="button more-button" type="button">Показать еще</button>
+    </template>
+
+    <template class="preloader-template">
+      <div class="preloader">
+        <span class="preloader__ring"></span>
+      </div>
+    </template>
+
+    <template class="error-template">
+      <div class="error">
+        <p class="error__title">Ошибка</p>
+        <p class="error__text"></p>
+      </div>
+    </template>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
